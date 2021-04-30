@@ -84,6 +84,9 @@ export default {
           this.indexes.push(helpIndex)
         }
       }
+      
+      helpIndex++
+      this.indexes.push(helpIndex)
 
       if (this.top)
         return this.players.slice(0, this.indexes.indexOf(6))
