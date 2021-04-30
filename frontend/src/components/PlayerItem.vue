@@ -2,8 +2,8 @@
   <div v-bind:class="[index ? activeClass : finalClass]">
 <!--    <div class="row row-place">{{index + 1}}</div>-->
     <div class="row row-place">{{indexes}}</div>
-    <div class="row row-fio">{{todo.fio}}</div>
-    <div class="row row-status">{{todo.level}}</div>
+    <div class="row row-fio">{{player.fio}}</div>
+    <div class="row row-status">{{player.level}}</div>
     <div class="row row-rate">{{rateComputing}}</div>
     <div class="row row-money">{{moneyComputing}}</div>
   </div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "TodoItem",
+  name: "PlayerItem",
   data() {
     return {
       activeClass: 'v-table-row',
@@ -19,7 +19,7 @@ export default {
     }
   },
   props: {
-    todo: {
+    player: {
       type: Object,
       required: true
     },
@@ -33,11 +33,11 @@ export default {
   },
   computed: {
     rateComputing() {
-      return this.todo.resources.match(/(-?\d+(\.\d+)?)/g).map(v => +v)[0]+
-          this.todo.resources.match(/(-?\d+(\.\d+)?)/g).map(v => +v)[1]
+      return this.player.resources.match(/(-?\d+(\.\d+)?)/g).map(v => +v)[0]+
+          this.player.resources.match(/(-?\d+(\.\d+)?)/g).map(v => +v)[1]
     },
     moneyComputing() {
-      return this.todo.resources.match(/(-?\d+(\.\d+)?)/g).map(v => +v)[2]
+      return this.player.resources.match(/(-?\d+(\.\d+)?)/g).map(v => +v)[2]
     }
   }
 }

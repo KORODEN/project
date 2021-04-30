@@ -2,23 +2,23 @@
   <div>
     <h2>Топ 5</h2>
     <Loader v-if="loading"/>
-    <TodoList
-        v-else-if="todos.length"
-        v-bind:todos="todos"
+    <PlayersList
+        v-else-if="players.length"
+        v-bind:players="players"
         v-bind:top="top"
     />
-    <p v-else>No todos!</p>
+    <p v-else>No players!</p>
   </div>
 </template>
 
 <script>
-import TodoList from "@/components/TodoList";
+import PlayersList from "@/components/PlayersList";
 import Loader from "@/components/Loader";
 export default {
   name: 'App',
   data() {
     return {
-      todos: [],
+      players: [],
       loading: true,
       top: true
     }
@@ -27,12 +27,12 @@ export default {
     fetch('http://localhost:3000/players')
         .then(response => response.json())
         .then(json => {
-          this.todos = json
+          this.players = json
           this.loading = false
         })
   },
   components: {
-    TodoList,
+    PlayersList,
     Loader
   }
 }
