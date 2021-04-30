@@ -10,7 +10,7 @@
     <div class="v-table-body">
       <PlayerItem
           v-for="(player, i) in sortedList"
-          v-bind:todo="player"
+          v-bind:player="player"
           v-bind:key="player.idNode"
           v-bind:index="i"
           v-bind:indexes="indexes[i]"
